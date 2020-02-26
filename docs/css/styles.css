@@ -1,5 +1,24 @@
 /*! jmpr-site v1.0.0 | (c) 2020  | ISC License | git+https://github.com/moulson/jmpr-site.git */
-/* line 3, src/sass/styles.scss */
-h1 {
+/* line 5, src/sass/styles.scss */
+.container-fluid.navy {
+  background-color: #042633;
+}
+
+/* line 10, src/sass/styles.scss */
+.image-container {
+  text-align: center;
+}
+
+/* line 12, src/sass/styles.scss */
+.image-container img {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* line 19, src/sass/styles.scss */
+.holding h1 {
+  padding: 50px 0;
   color: #fff;
+  text-align: center;
+  font-size: 32px;
 }
