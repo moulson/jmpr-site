@@ -1,19 +1,118 @@
 @import 'partials/colours';
+@import 'partials/sizings';
 
+html{
+    max-width: $desktop;
+    margin:auto;
+    scroll-behavior: smooth;
+}
 
 .container-fluid{
+    padding: 140px 120px;
     &.navy{
         background-color: $navy;
+        
+    }
+
+    &.lblue{
+        padding: 0;
+        background-color: $babyblue;
+        &.speech{
+            padding: 0;
+            background-image: url('../images/speech_bubble_hi.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: $babyblue;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: block;
+            width: 100%;
+            height: 187px;
+        }
     }
 }
 
-.image-container{
+.logo-container{
     text-align:center;
     img{
-        max-width: 500px;
+        max-width: 358px;
+        min-width: 200px;
         width:100%;
     }
 }
+
+.header{
+    .nav-list{
+        padding-top: 20px;
+        list-style: none;
+        text-align: right;
+        li{
+            font-size: 30px;
+            display: inline-block;
+            color: #ffffff;
+            padding: 0 2px;
+            a{
+                font-size: 30px;
+                display: inline-block;
+                color: #ffffff;
+                text-decoration: none;
+            }
+            &.separator{
+                color: $green;
+                font-size: 60px;
+            }
+        }
+    }
+}
+
+.header_chart{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: $margin-lg;
+    .sub{
+        margin-top: $margin-md;
+        p{
+            font-size: 70px;
+            color: #ffffff;
+        }
+    }
+    .main{
+        padding-right: $padding-md;
+        p{
+            color: $lightblue;
+            text-align: right;
+            font-size: 150px;
+            line-height: 0.93;
+            width: 100%;
+        }
+    }
+
+    .chart-container{
+        margin: auto;
+        img{
+            float: right;
+            width: 100%;
+            margin: auto;
+        }
+    }
+    
+}
+
+.header_contact{
+    margin-top: 50px;
+    p{
+        margin: 0;
+    }
+    .title{
+        color: $green;
+        font-size: 70px;
+    }
+    .text{
+        color: #ffffff;
+        font-size: 60px;
+    }
+}
+
 
 .holding{
     h1{
@@ -21,5 +120,14 @@
         color: #fff;
         text-align: center;
         font-size: 32px;
+    }
+}
+
+.section-2{
+    p{
+        color: $navy;
+        font-size: 60px;
+        line-height: 72px;
+        font-weight: bold;
     }
 }
