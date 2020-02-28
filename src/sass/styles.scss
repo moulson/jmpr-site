@@ -1,5 +1,7 @@
 @import 'partials/colours';
 @import 'partials/sizings';
+@import 'partials/fonts';
+@import 'partials/media';
 
 html{
     max-width: $desktop;
@@ -72,6 +74,8 @@ html{
     .sub{
         margin-top: $margin-md;
         p{
+            font-family: $venti-extra-bold;
+            line-height: 1;
             font-size: 70px;
             color: #ffffff;
         }
@@ -79,6 +83,7 @@ html{
     .main{
         padding-right: $padding-md;
         p{
+            font-family: $venti-extra-bold;
             color: $lightblue;
             text-align: right;
             font-size: 150px;

@@ -8,8 +8,8 @@ var settings = {
 	scripts: true,
 	polyfills: true,
 	styles: true,
-    svgs: true,
-    images: true,
+	svgs: true,
+	images: true,
 	copy: true,
 	reload: true
 };
@@ -38,11 +38,11 @@ var paths = {
 	copy: {
 		input: 'src/copy/**/*',
 		output: 'docs/'
-    },
-    images:{
-        input: 'src/images/*',
-        output: 'docs/images/'
-    },
+	},
+	images: {
+		input: 'src/images/*',
+		output: 'docs/images/'
+	},
 	reload: './docs/'
 };
 
@@ -67,7 +67,7 @@ var banner = {
  */
 
 // General
-var {gulp, src, dest, watch, series, parallel} = require('gulp');
+var { gulp, src, dest, watch, series, parallel } = require('gulp');
 var del = require('del');
 var flatmap = require('gulp-flatmap');
 var lazypipe = require('lazypipe');
@@ -120,13 +120,13 @@ var cleanDist = function (done) {
 
 // Repeated JavaScript tasks
 var jsTasks = lazypipe()
-	.pipe(header, banner.main, {package: package})
+	.pipe(header, banner.main, { package: package })
 	.pipe(optimizejs)
 	.pipe(dest, paths.scripts.output)
-	.pipe(rename, {suffix: '.min'})
+	.pipe(rename, { suffix: '.min' })
 	.pipe(uglify)
 	.pipe(optimizejs)
-	.pipe(header, banner.main, {package: package})
+	.pipe(header, banner.main, { package: package })
 	.pipe(dest, paths.scripts.output);
 
 // Lint, minify, and concatenate scripts
@@ -137,7 +137,7 @@ var buildScripts = function (done) {
 
 	// Run tasks on script files
 	return src(paths.scripts.input)
-		.pipe(flatmap(function(stream, file) {
+		.pipe(flatmap(function (stream, file) {
 
 			// If the file is a directory
 			if (file.isDirectory()) {
@@ -206,9 +206,9 @@ var buildStyles = function (done) {
 				remove: true
 			})
 		]))
-		.pipe(header(banner.main, {package: package}))
+		.pipe(header(banner.main, { package: package }))
 		.pipe(dest(paths.styles.output))
-		.pipe(rename({suffix: '.min'}))
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(postcss([
 			minify({
 				discardComments: {
@@ -233,12 +233,12 @@ var buildSVGs = function (done) {
 
 };
 
-var buildImages = function(done){
-    //if(!settings.img) return done();
+var buildImages = function (done) {
+	//if(!settings.img) return done();
 
-    return src(paths.images.input)
-        .pipe(imagemin())
-        .pipe(dest(paths.images.output));
+	return src(paths.images.input)
+		.pipe(imagemin())
+		.pipe(dest(paths.images.output));
 }
 
 // Copy static files into output folder
@@ -297,8 +297,8 @@ exports.default = series(
 		buildScripts,
 		lintScripts,
 		buildStyles,
-        buildSVGs,
-        buildImages,
+		buildSVGs,
+		buildImages,
 		copyFiles
 	)
 );
